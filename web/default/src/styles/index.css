@@ -315,11 +315,11 @@ For commercial licensing, please contact support@quantumnous.com
 
   /* Animations */
   .animate-appear {
-    animation: appear 0.6s forwards ease-out;
+    animation: appear 1s forwards ease-out;
   }
 
   .animate-appear-zoom {
-    animation: appear-zoom 0.6s forwards ease-out;
+    animation: appear-zoom 1s forwards ease-out;
   }
 
   .animation-delay-100 {
@@ -408,7 +408,7 @@ For commercial licensing, please contact support@quantumnous.com
 @keyframes landing-fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -426,7 +426,7 @@ For commercial licensing, please contact support@quantumnous.com
 @keyframes landing-scale-in {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.97);
   }
   to {
     opacity: 1;
@@ -436,7 +436,7 @@ For commercial licensing, please contact support@quantumnous.com
 @keyframes landing-fade-left {
   from {
     opacity: 0;
-    transform: translateX(24px);
+    transform: translateX(16px);
   }
   to {
     opacity: 1;
@@ -446,7 +446,7 @@ For commercial licensing, please contact support@quantumnous.com
 @keyframes landing-fade-right {
   from {
     opacity: 0;
-    transform: translateX(-24px);
+    transform: translateX(-16px);
   }
   to {
     opacity: 1;
@@ -455,19 +455,19 @@ For commercial licensing, please contact support@quantumnous.com
 }
 
 .landing-animate-fade-up {
-  animation: landing-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: landing-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .landing-animate-fade-in {
-  animation: landing-fade-in 0.6s ease-out both;
+  animation: landing-fade-in 1.2s ease-out both;
 }
 .landing-animate-scale-in {
-  animation: landing-scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: landing-scale-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .landing-animate-fade-left {
-  animation: landing-fade-left 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: landing-fade-left 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .landing-animate-fade-right {
-  animation: landing-fade-right 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: landing-fade-right 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -610,5 +610,273 @@ For commercial licensing, please contact support@quantumnous.com
   .terminal-demo-spin,
   .terminal-demo-pulse {
     animation: none !important;
+  }
+}
+
+/* ── NovAPI Brand Effects ── */
+
+/* Glow effect for primary buttons in dark mode */
+.dark .novapi-glow {
+  box-shadow: 0 0 20px oklch(0.65 0.2 275 / 30%),
+              0 0 40px oklch(0.65 0.2 275 / 10%);
+}
+
+.dark .novapi-glow:hover {
+  box-shadow: 0 0 25px oklch(0.65 0.2 275 / 40%),
+              0 0 50px oklch(0.65 0.2 275 / 15%);
+}
+
+/* Subtle gradient border for cards in dark mode */
+.dark .novapi-card-glow {
+  position: relative;
+}
+
+.dark .novapi-card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, oklch(0.65 0.2 275 / 30%), transparent 50%, oklch(0.6 0.18 250 / 20%));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark .novapi-card-glow:hover::before {
+  opacity: 1;
+}
+
+/* Animated gradient text */
+@keyframes novapi-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.novapi-gradient-text {
+  background: linear-gradient(135deg, #818cf8, #a78bfa, #c084fc, #7dd3fc, #818cf8);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: novapi-gradient-shift 8s ease infinite;
+}
+
+/* Noise texture overlay for depth */
+.dark .novapi-noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ── NovAPI Background Animations ── */
+
+/* Soft aurora blobs — gentle drift, subtle shape morph */
+.novapi-bg-blob {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(150px);
+  opacity: 0.4;
+}
+
+.novapi-bg-blob-1 {
+  width: 50vw;
+  height: 50vw;
+  max-width: 800px;
+  max-height: 800px;
+  top: -15%;
+  left: 10%;
+  background: oklch(0.4 0.18 275);
+  animation: novapi-flow-1 30s ease-in-out infinite !important;
+}
+
+.novapi-bg-blob-2 {
+  width: 45vw;
+  height: 45vw;
+  max-width: 700px;
+  max-height: 700px;
+  top: 40%;
+  right: -10%;
+  background: oklch(0.35 0.15 295);
+  animation: novapi-flow-2 36s ease-in-out infinite !important;
+}
+
+.novapi-bg-blob-3 {
+  width: 48vw;
+  height: 48vw;
+  max-width: 750px;
+  max-height: 750px;
+  bottom: -10%;
+  left: 25%;
+  background: oklch(0.35 0.14 248);
+  animation: novapi-flow-3 40s ease-in-out infinite !important;
+}
+
+/* Gentle flowing paths — small displacement, smooth morphing */
+@keyframes novapi-flow-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    border-radius: 40% 60% 55% 45% / 55% 45% 60% 40%;
+  }
+  20% {
+    transform: translate(8vw, 5vh) rotate(2deg);
+    border-radius: 55% 45% 40% 60% / 45% 55% 50% 50%;
+  }
+  40% {
+    transform: translate(15vw, 12vh) rotate(-1deg);
+    border-radius: 45% 55% 65% 35% / 60% 40% 45% 55%;
+  }
+  60% {
+    transform: translate(5vw, 18vh) rotate(3deg);
+    border-radius: 60% 40% 45% 55% / 35% 65% 55% 45%;
+  }
+  80% {
+    transform: translate(-5vw, 8vh) rotate(-2deg);
+    border-radius: 50% 50% 55% 45% / 50% 50% 40% 60%;
+  }
+}
+
+@keyframes novapi-flow-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    border-radius: 55% 45% 50% 50% / 50% 50% 45% 55%;
+  }
+  25% {
+    transform: translate(-10vw, -8vh) rotate(-2deg);
+    border-radius: 45% 55% 60% 40% / 60% 40% 55% 45%;
+  }
+  50% {
+    transform: translate(-6vw, -15vh) rotate(2deg);
+    border-radius: 60% 40% 40% 60% / 45% 55% 60% 40%;
+  }
+  75% {
+    transform: translate(5vw, -5vh) rotate(-1deg);
+    border-radius: 40% 60% 50% 50% / 55% 45% 45% 55%;
+  }
+}
+
+@keyframes novapi-flow-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    border-radius: 50% 50% 45% 55% / 45% 55% 50% 50%;
+  }
+  30% {
+    transform: translate(6vw, -10vh) rotate(2deg);
+    border-radius: 55% 45% 60% 40% / 40% 60% 50% 50%;
+  }
+  60% {
+    transform: translate(-8vw, -5vh) rotate(-2deg);
+    border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%;
+  }
+  85% {
+    transform: translate(-3vw, 5vh) rotate(1deg);
+    border-radius: 60% 40% 50% 50% / 50% 50% 45% 55%;
+  }
+}
+
+/* Soft wave — very subtle bottom layer */
+.novapi-wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  pointer-events: none;
+}
+
+.novapi-wave-1 {
+  bottom: 0;
+  height: 30%;
+  background: linear-gradient(180deg, transparent 0%, oklch(0.15 0.02 275 / 30%) 70%, oklch(0.13 0.03 270 / 45%) 100%);
+  border-radius: 100% 100% 0 0 / 60% 60% 0 0;
+  animation: novapi-wave-1 14s ease-in-out infinite !important;
+}
+
+.novapi-wave-2 {
+  bottom: -3%;
+  height: 25%;
+  background: linear-gradient(180deg, transparent 0%, oklch(0.13 0.02 265 / 20%) 70%, oklch(0.12 0.02 270 / 35%) 100%);
+  border-radius: 100% 100% 0 0 / 50% 70% 0 0;
+  animation: novapi-wave-2 18s ease-in-out infinite !important;
+}
+
+@keyframes novapi-wave-1 {
+  0%, 100% {
+    transform: translateX(0);
+    border-radius: 100% 100% 0 0 / 60% 60% 0 0;
+  }
+  50% {
+    transform: translateX(3%);
+    border-radius: 92% 108% 0 0 / 52% 68% 0 0;
+  }
+}
+
+@keyframes novapi-wave-2 {
+  0%, 100% {
+    transform: translateX(0);
+    border-radius: 100% 100% 0 0 / 50% 70% 0 0;
+  }
+  50% {
+    transform: translateX(-3%);
+    border-radius: 108% 92% 0 0 / 65% 55% 0 0;
+  }
+}
+
+/* Utility */
+.novapi-particle {
+  position: absolute;
+  width: var(--p-size, 2px);
+  height: var(--p-size, 2px);
+  left: var(--p-left, 50%);
+  top: var(--p-top, 50%);
+  border-radius: 50%;
+  background: oklch(0.85 0.1 275);
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.novapi-orb {
+  position: absolute;
+  width: var(--orb-size, 300px);
+  height: var(--orb-size, 300px);
+  border-radius: 50%;
+  background: oklch(0.35 0.15 275 / 25%);
+  left: var(--orb-x-start, 50%);
+  top: var(--orb-y-start, 50%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.novapi-hero-ring,
+.novapi-hero-ring-2,
+.novapi-hero-beam {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .novapi-bg-blob,
+  .novapi-wave {
+    animation: none !important;
+  }
+}
+
+/* Marquee — infinite horizontal scroll */
+.novapi-marquee {
+  animation: novapi-marquee 25s linear infinite !important;
+  width: max-content;
+}
+
+.novapi-marquee:hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes novapi-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

@@ -26,7 +26,7 @@ import { useTheme } from '@/context/theme-provider'
 import { isLikelyHtml } from '@/lib/content-format'
 import { useAuthStore } from '@/stores/auth-store'
 
-import { CTA, Features, Hero, HowItWorks, Stats } from './components'
+import { CTA, Features, Hero } from './components'
 import { useHomePageContent } from './hooks'
 
 export function Home() {
@@ -122,10 +122,16 @@ export function Home() {
 
   return (
     <PublicLayout showMainContainer={false}>
+      {/* Page-wide background effects */}
+      <div className='pointer-events-none fixed inset-0 z-0 overflow-hidden'>
+        <div className='novapi-bg-blob novapi-bg-blob-1' />
+        <div className='novapi-bg-blob novapi-bg-blob-2' />
+        <div className='novapi-bg-blob novapi-bg-blob-3' />
+        <div className='novapi-wave novapi-wave-1' />
+        <div className='novapi-wave novapi-wave-2' />
+      </div>
       <Hero isAuthenticated={isAuthenticated} />
-      <Stats />
       <Features />
-      <HowItWorks />
       <CTA isAuthenticated={isAuthenticated} />
       <Footer />
     </PublicLayout>

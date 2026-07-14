@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="novapi-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="#0f0a1a"/>
+  <circle cx="256" cy="256" r="240" fill="url(#novapi-grad)" opacity="0.15"/>
+  <!-- Nova star burst -->
+  <g filter="url(#glow)">
+    <!-- Main star rays -->
+    <path d="M256 80 L268 220 L340 140 L280 232 L400 216 L284 252 L400 296 L280 272 L340 372 L268 292 L256 432 L244 292 L172 372 L232 272 L112 296 L228 252 L112 216 L232 232 L172 140 L244 220 Z" fill="url(#novapi-grad)"/>
+    <!-- Center glow -->
+    <circle cx="256" cy="256" r="32" fill="white" opacity="0.9"/>
+    <circle cx="256" cy="256" r="20" fill="white"/>
+  </g>
+</svg>

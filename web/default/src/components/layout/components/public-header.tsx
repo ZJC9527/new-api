@@ -84,10 +84,10 @@ export function PublicHeader(props: PublicHeaderProps) {
   const { auth } = useAuthStore()
   const {
     systemName,
-    logo: systemLogo,
     loading,
     logoLoaded,
   } = useSystemConfig()
+  const systemLogo = '/logo.svg'
   const dynamicLinks = useTopNavLinks()
   const notifications = useNotifications()
   const routerState = useRouterState()
@@ -95,7 +95,7 @@ export function PublicHeader(props: PublicHeaderProps) {
 
   const user = auth.user
   const isAuthenticated = !!user
-  const displaySiteName = customSiteName || systemName
+  const displaySiteName = 'NovAPI'
   const links = dynamicLinks.length > 0 ? dynamicLinks : navLinks
 
   useEffect(() => {
