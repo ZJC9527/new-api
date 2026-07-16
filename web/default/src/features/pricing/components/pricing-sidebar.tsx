@@ -101,24 +101,24 @@ function FilterChip(props: {
       type='button'
       onClick={props.onClick}
       className={cn(
-        'group inline-flex max-w-full items-center gap-1.5 rounded-md border px-2 py-1 text-xs font-medium transition-all',
+        'group flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-all',
         props.active
-          ? 'border-foreground/30 bg-foreground/5 text-foreground shadow-sm'
-          : 'border-border/70 bg-background text-muted-foreground hover:border-border hover:bg-muted/50 hover:text-foreground'
+          ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 font-medium'
+          : 'text-muted-foreground hover:bg-emerald-50/50 hover:text-emerald-700 dark:hover:bg-emerald-500/5 dark:hover:text-emerald-300'
       )}
       title={props.option.label}
     >
       {props.option.icon && (
         <span className='shrink-0'>{props.option.icon}</span>
       )}
-      <span className='truncate'>{props.option.label}</span>
+      <span className='flex-1 truncate text-left'>{props.option.label}</span>
       {(props.option.suffix || props.option.count != null) && (
         <span
           className={cn(
-            'rounded-md px-1.5 py-0.5 text-[12px]',
+            'text-xs tabular-nums',
             props.active
-              ? 'bg-background text-foreground'
-              : 'bg-muted text-muted-foreground'
+              ? 'text-primary/70'
+              : 'text-muted-foreground/60'
           )}
         >
           {props.option.suffix ?? props.option.count}
@@ -141,7 +141,7 @@ function FilterSection(props: FilterSectionProps) {
         <ChevronDown className='text-muted-foreground size-4 transition-transform group-data-[panel-open]:rotate-180' />
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div className='flex flex-wrap gap-1.5'>
+        <div className='grid grid-cols-1 gap-0.5'>
           {props.options.map((option) => (
             <FilterChip
               key={option.value}
@@ -164,7 +164,7 @@ export function PricingSidebar(props: PricingSidebarProps) {
   const vendorOptions: FilterOption[] = [
     {
       value: FILTER_ALL,
-      label: t('All Vendors'),
+      label: t('All'),
       count: props.models.length,
     },
     ...props.vendors
@@ -246,7 +246,7 @@ export function PricingSidebar(props: PricingSidebarProps) {
   ]
 
   return (
-    <aside className={cn('rounded-xl border p-3', props.className)}>
+    <aside className={cn('rounded-xl border border-gray-200 dark:border-gray-700 bg-card dark:bg-card/30 p-3', props.className)}>
       <div className='mb-2.5 flex items-center justify-between gap-2'>
         <div>
           <h2 className='text-foreground text-sm font-bold'>{t('Filter')}</h2>
@@ -267,42 +267,12 @@ export function PricingSidebar(props: PricingSidebarProps) {
         </Button>
       </div>
 
-      {props.hasActiveFilters && (
-        <Badge variant='secondary' className='mb-3'>
-          {t('Filters active')}
-        </Badge>
-      )}
-
       <div className='space-y-1'>
         <FilterSection
-          title={t('Groups')}
-          value={props.groupFilter}
-          options={groupOptions}
-          onChange={props.onGroupChange}
-        />
-        <FilterSection
-          title={t('All Vendors')}
+          title={t('Providers')}
           value={props.vendorFilter}
           options={vendorOptions}
           onChange={props.onVendorChange}
-        />
-        <FilterSection
-          title={t('Model Tags')}
-          value={props.tagFilter}
-          options={tagOptions}
-          onChange={props.onTagChange}
-        />
-        <FilterSection
-          title={t('Pricing Type')}
-          value={props.quotaTypeFilter}
-          options={quotaOptions}
-          onChange={props.onQuotaTypeChange}
-        />
-        <FilterSection
-          title={t('Endpoint Type')}
-          value={props.endpointTypeFilter}
-          options={endpointOptions}
-          onChange={props.onEndpointTypeChange}
         />
       </div>
     </aside>

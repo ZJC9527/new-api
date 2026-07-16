@@ -5241,6 +5241,7 @@
     "Cost Effective": "成本优势",
     "Competitive pricing with no hidden fees. Real-time cost tracking per model and per key.": "极具竞争力的价格，无隐藏费用。按模型、按 Key 实时追踪成本。",
     "Production Ready": "生产就绪",
-    "Rate limiting, usage quotas, key management, and detailed analytics built in.": "内置速率限制、用量配额、Key 管理和详细分析。"
+    "Rate limiting, usage quotas, key management, and detailed analytics built in.": "内置速率限制、用量配额、Key 管理和详细分析。",
+    "Providers": "供应商"
   }
 }

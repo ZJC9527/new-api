@@ -21,12 +21,12 @@ export function Hero(props: HeroProps) {
       <div className='relative z-10 mx-auto max-w-5xl text-center'>
         {/* Badge */}
         <div
-          className='landing-animate-fade-up mb-8 inline-flex items-center gap-2 rounded-full border border-purple-400/20 bg-purple-500/5 px-4 py-2 text-xs font-medium text-purple-300 opacity-0 backdrop-blur-sm'
+          className='landing-animate-fade-up mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-medium text-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-500/5 dark:text-emerald-300 opacity-0 backdrop-blur-sm'
           style={{ animationDelay: '200ms' }}
         >
           <span className='relative flex size-1.5'>
-            <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75' />
-            <span className='relative inline-flex size-1.5 rounded-full bg-purple-400' />
+            <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 dark:bg-emerald-400 opacity-75' />
+            <span className='relative inline-flex size-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400' />
           </span>
           <span>{t('Next-Gen AI Infrastructure')}</span>
         </div>
@@ -36,7 +36,7 @@ export function Hero(props: HeroProps) {
           className='landing-animate-fade-up text-4xl leading-[1.15] font-bold tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl'
           style={{ animationDelay: '500ms' }}
         >
-          <span className='text-purple-100'>{t('One API for')}</span>{' '}
+          <span className='text-foreground'>{t('One API for')}</span>{' '}
           <span className='novapi-gradient-text'>
             {t('All AI Models')}
           </span>
@@ -44,7 +44,7 @@ export function Hero(props: HeroProps) {
 
         {/* Subtitle */}
         <p
-          className='landing-animate-fade-up mx-auto mt-6 max-w-lg text-base leading-relaxed opacity-0 text-purple-200/70 md:text-lg'
+          className='landing-animate-fade-up mx-auto mt-6 max-w-lg text-base leading-relaxed opacity-0 text-muted-foreground md:text-lg'
           style={{ animationDelay: '800ms' }}
         >
           {t(
@@ -90,7 +90,7 @@ export function Hero(props: HeroProps) {
 
         {/* Trust line */}
         <p
-          className='landing-animate-fade-up text-purple-300/40 mt-8 text-xs opacity-0'
+          className='landing-animate-fade-up text-muted-foreground/60 mt-8 text-xs opacity-0'
           style={{ animationDelay: '1400ms' }}
         >
           {t('OpenAI-compatible · Pay as you go · No vendor lock-in')}

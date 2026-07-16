@@ -122,11 +122,8 @@ export function Home() {
 
   return (
     <PublicLayout showMainContainer={false}>
-      {/* Page-wide background effects */}
+      {/* Page-wide wave effect */}
       <div className='pointer-events-none fixed inset-0 z-0 overflow-hidden'>
-        <div className='novapi-bg-blob novapi-bg-blob-1' />
-        <div className='novapi-bg-blob novapi-bg-blob-2' />
-        <div className='novapi-bg-blob novapi-bg-blob-3' />
         <div className='novapi-wave novapi-wave-1' />
         <div className='novapi-wave novapi-wave-2' />
       </div>

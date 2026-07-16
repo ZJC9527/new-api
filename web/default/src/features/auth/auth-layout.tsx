@@ -12,12 +12,6 @@ type AuthLayoutProps = {
 export function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className='relative h-svh max-w-none overflow-hidden'>
-      {/* Background effects */}
-      <div className='pointer-events-none absolute inset-0 -z-10 overflow-hidden'>
-        <div className='novapi-bg-blob novapi-bg-blob-1' />
-        <div className='novapi-bg-blob novapi-bg-blob-2' />
-        <div className='novapi-bg-blob novapi-bg-blob-3' />
-      </div>
 
       {/* Header navigation */}
       <PublicHeader />

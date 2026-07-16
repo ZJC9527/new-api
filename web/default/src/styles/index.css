@@ -654,7 +654,7 @@ For commercial licensing, please contact support@quantumnous.com
 }
 
 .novapi-gradient-text {
-  background: linear-gradient(135deg, #818cf8, #a78bfa, #c084fc, #7dd3fc, #818cf8);
+  background: linear-gradient(135deg, #34d399, #5eead4, #67e8f9, #a5f3fc, #34d399);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -679,102 +679,127 @@ For commercial licensing, please contact support@quantumnous.com
 .novapi-bg-blob {
   position: absolute;
   pointer-events: none;
-  filter: blur(150px);
-  opacity: 0.4;
+  filter: blur(50px);
+  opacity: 0.45;
+  border-radius: 50%;
 }
 
 .novapi-bg-blob-1 {
-  width: 50vw;
-  height: 50vw;
-  max-width: 800px;
-  max-height: 800px;
-  top: -15%;
-  left: 10%;
-  background: oklch(0.4 0.18 275);
-  animation: novapi-flow-1 30s ease-in-out infinite !important;
+  width: 420px;
+  height: 420px;
+  top: 5%;
+  left: 8%;
+  background: oklch(0.45 0.15 170);
+  animation: novapi-flow-1 28s ease-in-out infinite, novapi-color-shift-1 20s ease-in-out infinite !important;
 }
 
 .novapi-bg-blob-2 {
-  width: 45vw;
-  height: 45vw;
-  max-width: 700px;
-  max-height: 700px;
-  top: 40%;
-  right: -10%;
-  background: oklch(0.35 0.15 295);
-  animation: novapi-flow-2 36s ease-in-out infinite !important;
+  width: 350px;
+  height: 350px;
+  top: 15%;
+  right: 12%;
+  background: oklch(0.38 0.13 280);
+  animation: novapi-flow-2 34s ease-in-out infinite, novapi-color-shift-2 24s ease-in-out infinite !important;
 }
 
 .novapi-bg-blob-3 {
-  width: 48vw;
-  height: 48vw;
-  max-width: 750px;
-  max-height: 750px;
-  bottom: -10%;
-  left: 25%;
-  background: oklch(0.35 0.14 248);
-  animation: novapi-flow-3 40s ease-in-out infinite !important;
+  width: 450px;
+  height: 450px;
+  top: 45%;
+  left: 55%;
+  background: oklch(0.38 0.12 160);
+  animation: novapi-flow-3 32s ease-in-out infinite, novapi-color-shift-3 26s ease-in-out infinite !important;
 }
 
-/* Gentle flowing paths — small displacement, smooth morphing */
+.novapi-bg-blob-4 {
+  width: 320px;
+  height: 320px;
+  top: 60%;
+  left: 5%;
+  background: oklch(0.42 0.14 175);
+  animation: novapi-flow-1 38s ease-in-out infinite, novapi-color-shift-4 22s ease-in-out infinite !important;
+  animation-delay: -5s;
+}
+
+.novapi-bg-blob-5 {
+  width: 380px;
+  height: 380px;
+  top: 75%;
+  right: 20%;
+  background: oklch(0.35 0.11 290);
+  animation: novapi-flow-2 30s ease-in-out infinite, novapi-color-shift-5 28s ease-in-out infinite !important;
+  animation-delay: -8s;
+}
+
+.novapi-bg-blob-6 {
+  width: 300px;
+  height: 300px;
+  top: 30%;
+  left: 35%;
+  background: oklch(0.43 0.13 165);
+  animation: novapi-flow-3 42s ease-in-out infinite, novapi-color-shift-6 18s ease-in-out infinite !important;
+  animation-delay: -3s;
+}
+
+/* Faster, more dynamic flowing paths */
 @keyframes novapi-flow-1 {
   0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-    border-radius: 40% 60% 55% 45% / 55% 45% 60% 40%;
+    transform: translate(0, 0) scale(1);
+    border-radius: 30% 70% 70% 30% / 30% 50% 50% 70%;
   }
   20% {
-    transform: translate(8vw, 5vh) rotate(2deg);
-    border-radius: 55% 45% 40% 60% / 45% 55% 50% 50%;
+    transform: translate(12vw, 8vh) scale(1.1);
+    border-radius: 70% 30% 40% 60% / 60% 30% 70% 40%;
   }
   40% {
-    transform: translate(15vw, 12vh) rotate(-1deg);
-    border-radius: 45% 55% 65% 35% / 60% 40% 45% 55%;
+    transform: translate(-5vw, 15vh) scale(0.9);
+    border-radius: 50% 80% 30% 60% / 70% 40% 80% 30%;
   }
   60% {
-    transform: translate(5vw, 18vh) rotate(3deg);
-    border-radius: 60% 40% 45% 55% / 35% 65% 55% 45%;
+    transform: translate(8vw, -5vh) scale(1.15);
+    border-radius: 80% 30% 60% 40% / 30% 70% 40% 70%;
   }
   80% {
-    transform: translate(-5vw, 8vh) rotate(-2deg);
-    border-radius: 50% 50% 55% 45% / 50% 50% 40% 60%;
+    transform: translate(-8vw, 5vh) scale(0.95);
+    border-radius: 40% 70% 50% 80% / 60% 30% 70% 50%;
   }
 }
 
 @keyframes novapi-flow-2 {
   0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-    border-radius: 55% 45% 50% 50% / 50% 50% 45% 55%;
+    transform: translate(0, 0) scale(1);
+    border-radius: 60% 40% 30% 70% / 50% 70% 30% 60%;
   }
   25% {
-    transform: translate(-10vw, -8vh) rotate(-2deg);
-    border-radius: 45% 55% 60% 40% / 60% 40% 55% 45%;
+    transform: translate(-10vw, 10vh) scale(1.12);
+    border-radius: 30% 80% 70% 40% / 70% 30% 60% 50%;
   }
   50% {
-    transform: translate(-6vw, -15vh) rotate(2deg);
-    border-radius: 60% 40% 40% 60% / 45% 55% 60% 40%;
+    transform: translate(6vw, -12vh) scale(0.88);
+    border-radius: 70% 40% 50% 80% / 30% 60% 70% 40%;
   }
   75% {
-    transform: translate(5vw, -5vh) rotate(-1deg);
-    border-radius: 40% 60% 50% 50% / 55% 45% 45% 55%;
+    transform: translate(10vw, 6vh) scale(1.05);
+    border-radius: 50% 60% 80% 30% / 70% 40% 30% 80%;
   }
 }
 
 @keyframes novapi-flow-3 {
   0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-    border-radius: 50% 50% 45% 55% / 45% 55% 50% 50%;
+    transform: translate(0, 0) scale(1);
+    border-radius: 70% 30% 50% 60% / 40% 70% 30% 80%;
   }
   30% {
-    transform: translate(6vw, -10vh) rotate(2deg);
-    border-radius: 55% 45% 60% 40% / 40% 60% 50% 50%;
+    transform: translate(10vw, -8vh) scale(1.1);
+    border-radius: 30% 70% 80% 40% / 70% 30% 50% 60%;
   }
   60% {
-    transform: translate(-8vw, -5vh) rotate(-2deg);
-    border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%;
+    transform: translate(-12vw, 6vh) scale(0.9);
+    border-radius: 60% 50% 30% 80% / 40% 70% 60% 30%;
   }
   85% {
-    transform: translate(-3vw, 5vh) rotate(1deg);
-    border-radius: 60% 40% 50% 50% / 50% 50% 45% 55%;
+    transform: translate(5vw, 10vh) scale(1.08);
+    border-radius: 80% 40% 60% 30% / 30% 60% 80% 50%;
   }
 }
 
@@ -845,7 +870,7 @@ For commercial licensing, please contact support@quantumnous.com
   background: oklch(0.35 0.15 275 / 25%);
   left: var(--orb-x-start, 50%);
   top: var(--orb-y-start, 50%);
-  filter: blur(80px);
+  filter: blur(50px);
   pointer-events: none;
 }
 
@@ -879,4 +904,60 @@ For commercial licensing, please contact support@quantumnous.com
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* Color-shifting animations for blobs */
+@keyframes novapi-color-shift-1 {
+  0%, 100% { background: oklch(0.45 0.15 170); }
+  33% { background: oklch(0.42 0.14 200); }
+  66% { background: oklch(0.4 0.13 270); }
+}
+
+@keyframes novapi-color-shift-2 {
+  0%, 100% { background: oklch(0.38 0.13 280); }
+  50% { background: oklch(0.42 0.14 180); }
+}
+
+@keyframes novapi-color-shift-3 {
+  0%, 100% { background: oklch(0.38 0.12 160); }
+  40% { background: oklch(0.4 0.13 260); }
+  70% { background: oklch(0.42 0.14 190); }
+}
+
+@keyframes novapi-color-shift-4 {
+  0%, 100% { background: oklch(0.42 0.14 175); }
+  50% { background: oklch(0.38 0.12 285); }
+}
+
+@keyframes novapi-color-shift-5 {
+  0%, 100% { background: oklch(0.35 0.11 290); }
+  35% { background: oklch(0.4 0.13 170); }
+  70% { background: oklch(0.38 0.12 220); }
+}
+
+@keyframes novapi-color-shift-6 {
+  0%, 100% { background: oklch(0.43 0.13 165); }
+  50% { background: oklch(0.4 0.14 275); }
+}
+
+
+/* Light mode: hide all dark-mode effects, clean standard look */
+html:not(.dark) .novapi-bg-blob {
+  display: none !important;
+}
+
+html:not(.dark) .novapi-wave {
+  display: none !important;
+}
+
+html:not(.dark) .novapi-gradient-text {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: currentColor !important;
+  background-clip: unset !important;
+  color: oklch(0.4 0.14 170);
+}
+
+html:not(.dark) .novapi-glow {
+  box-shadow: none !important;
 }

@@ -48,6 +48,15 @@ function RootComponent() {
 
   return (
     <ThemeCustomizationProvider>
+      {/* Global animated background */}
+      <div className='pointer-events-none fixed inset-0 z-0 overflow-hidden'>
+        <div className='novapi-bg-blob novapi-bg-blob-1' />
+        <div className='novapi-bg-blob novapi-bg-blob-2' />
+        <div className='novapi-bg-blob novapi-bg-blob-3' />
+        <div className='novapi-bg-blob novapi-bg-blob-4' />
+        <div className='novapi-bg-blob novapi-bg-blob-5' />
+        <div className='novapi-bg-blob novapi-bg-blob-6' />
+      </div>
       <NavigationProgress />
       <Outlet />
       <Toaster closeButton duration={5000} position='top-center' richColors />
