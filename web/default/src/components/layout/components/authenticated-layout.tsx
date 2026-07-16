@@ -17,41 +17,33 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 import { AnimatedOutlet } from '@/components/page-transition'
-import { SkipToMain } from '@/components/skip-to-main'
-import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
+import { Search } from '@/components/search'
+import { SidebarProvider } from '@/components/ui/sidebar'
 import { LayoutProvider } from '@/context/layout-provider'
 import { SearchProvider } from '@/context/search-provider'
-import { getCookie } from '@/lib/cookies'
-import { cn } from '@/lib/utils'
 
-import { AppHeader } from './app-header'
 import { AppSidebar } from './app-sidebar'
+import { PublicHeader } from './public-header'
 
 type AuthenticatedLayoutProps = {
   children?: React.ReactNode
 }
 
 export function AuthenticatedLayout(props: AuthenticatedLayoutProps) {
-  const defaultOpen = getCookie('sidebar_state') !== 'false'
-
   return (
     <LayoutProvider>
       <SearchProvider>
-        <SidebarProvider defaultOpen={defaultOpen} className='flex-col'>
-          <SkipToMain />
-          <AppHeader />
-          <div className='flex min-h-0 w-full flex-1'>
-            <AppSidebar />
-            <SidebarInset
-              className={cn(
-                '@container/content',
-                'h-[calc(100svh-var(--app-header-height,0px))]',
-                'min-h-0 overflow-hidden',
-                'peer-data-[variant=inset]:h-[calc(100svh-var(--app-header-height,0px)-(var(--spacing)*4))]'
-              )}
-            >
-              {props.children ?? <AnimatedOutlet />}
-            </SidebarInset>
+        <SidebarProvider defaultOpen>
+          <PublicHeader rightContent={<Search />} />
+          <div className='mx-auto w-full max-w-[1800px] px-3 pt-20 pb-8 sm:px-6 xl:px-8'>
+            <div className='grid gap-4 xl:grid-cols-[280px_minmax(0,1fr)]'>
+              <div className='sticky top-20 h-fit'>
+                <AppSidebar />
+              </div>
+              <main className='@container/content min-w-0 rounded-xl border border-gray-200 dark:border-gray-700 bg-card dark:bg-card/30 p-4 sm:p-6'>
+                {props.children ?? <AnimatedOutlet />}
+              </main>
+            </div>
           </div>
         </SidebarProvider>
       </SearchProvider>
